@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>我的第一个网页</title>
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      text-align: center;
+      padding: 60px 20px;
+      background: #f5f7fb;
+      color: #182230;
+    }
+    button {
+      padding: 14px 24px;
+      font-size: 18px;
+      color: white;
+      background: #2563eb;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    #message { font-size: 24px; }
+  </style>
+</head>
+<body>
+  <h1>我的第一个网页</h1>
+  <button id="helloButton" type="button">点我打招呼</button>
+  <p id="message" aria-live="polite"></p>
+
+  <script>
+    document.getElementById('helloButton').addEventListener('click', function () {
+      document.getElementById('message').textContent = '你好，Codex！';
+    });
+  </script>
+</body>
+</html>
