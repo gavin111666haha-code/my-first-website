@@ -102,10 +102,13 @@ nav {
   gap:26px;
 }
 nav>a {
+  min-width:44px;
+  text-align:center;
   font-size:14px;
   padding-block:12px;
 }
 .theme-toggle {
+  min-width:44px;
   display:flex;
   align-items:center;
   gap:8px;
