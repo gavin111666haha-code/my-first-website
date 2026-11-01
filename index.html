@@ -2,37 +2,68 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>我的第一个网页</title>
-  <style>
-    body {
-      font-family: system-ui, sans-serif;
-      text-align: center;
-      padding: 60px 20px;
-      background: #f5f7fb;
-      color: #182230;
-    }
-    button {
-      padding: 14px 24px;
-      font-size: 18px;
-      color: white;
-      background: #2563eb;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-    }
-    #message { font-size: 24px; }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="一个记录学习、灵感与探索的个人主页。介绍和技能均为可替换的示例内容。">
+  <meta name="color-scheme" content="light dark">
+  <title>你好，世界 · 我的个人主页</title>
+  <script>
+    // 在首屏绘制前恢复主题；无法使用本地存储时仍可跟随系统。
+    try {
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'light' || savedTheme === 'dark') {
+        document.documentElement.dataset.theme = savedTheme;
+      }
+    } catch (_) {}
+  </script>
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
 </head>
 <body>
-  <h1>我的第一个网页</h1>
-  <button id="helloButton" type="button">点我打招呼</button>
-  <p id="message" aria-live="polite"></p>
-
-  <script>
-    document.getElementById('helloButton').addEventListener('click', function () {
-      document.getElementById('message').textContent = '你好，Codex！';
-    });
-  </script>
+  <a class="skip-link" href="#main">跳到主要内容</a>
+  <header class="site-header wrap">
+    <a class="brand" href="#" aria-label="个人主页首页"><span class="brand-mark" aria-hidden="true">✳</span> 我的主页<span class="brand-dot">.</span></a>
+    <nav aria-label="主导航">
+      <a href="#about">关于</a>
+      <a href="#skills">技能</a>
+      <button id="themeToggle" class="theme-toggle" type="button" aria-label="切换深色模式" aria-pressed="false" hidden><span id="themeIcon" aria-hidden="true">☾</span><span id="themeLabel">深色模式</span></button>
+    </nav>
+  </header>
+  <main id="main" class="wrap">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span> HELLO, WORLD / 你好，世界</p>
+        <!-- 将“你的名字”与下面的介绍替换为你自己的内容。 -->
+        <h1 id="hero-title">你好，我是<br><span>你的名字</span><span class="title-dot">。</span></h1>
+        <p class="hero-description">保持好奇，慢慢创造。<br>在这里，记录学习的足迹，收藏生活的灵感，<br class="desktop-break">也让每一个小想法，有机会成为现实。</p>
+        <div class="hero-actions">
+          <button id="helloButton" class="button primary" type="button">点我打招呼 <span aria-hidden="true">↗</span></button>
+          <a class="button secondary" href="#skills">探索我的技能 <span aria-hidden="true">↓</span></a>
+        </div>
+        <p id="message" class="message" aria-live="polite" aria-atomic="true"></p>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+        <div class="art-spark">✳</div>
+        <div class="idea-card"><span class="card-kicker">A LITTLE EVERY DAY</span><span class="art-symbol">&lt; / &gt;</span><span class="card-line"></span><strong>把好奇，写成可能。</strong><span class="card-caption">LEARN · CREATE · REPEAT</span></div>
+        <span class="floating-note">灵感正在生长 <span>↗</span></span>
+        <span class="art-coordinate">IDEAS IN PROGRESS — 01</span>
+      </div>
+    </section>
+    <section id="about" class="about section" aria-labelledby="about-title">
+      <div><p class="eyebrow">01 / ABOUT ME</p><h2 id="about-title">一点关于我</h2></div>
+      <div class="about-copy"><p>这里是你的个人介绍。可以写下你正在学习的事情、喜欢的领域，或希望通过这个小站分享的内容。</p><p class="muted">不必一次写得完美，让它和你一起慢慢成长。</p><span class="sample-label">介绍与技能均为示例，请按实际情况替换</span></div>
+    </section>
+    <section id="skills" class="section skills" aria-labelledby="skills-title">
+      <div class="section-heading"><div><p class="eyebrow">02 / MY TOOLKIT</p><h2 id="skills-title">探索与创造的工具箱</h2></div><p class="muted">从基础出发，让想法落地。</p></div>
+      <!-- 示例技能，不代表真实掌握程度；请自由替换。 -->
+      <div class="skill-grid">
+        <article class="skill-card"><div class="skill-top"><span class="skill-icon" aria-hidden="true">&lt;/&gt;</span><span class="skill-number">01</span></div><h3>HTML · 内容的骨架</h3><p>用清晰的语义组织内容，让每一段信息都有合适的位置。</p><span class="skill-tag">示例 · 网页结构</span></article>
+        <article class="skill-card"><div class="skill-top"><span class="skill-icon" aria-hidden="true">✧</span><span class="skill-number">02</span></div><h3>CSS · 视觉的表达</h3><p>探索色彩、布局与响应式设计，让不同屏幕都舒适好读。</p><span class="skill-tag">示例 · 界面设计</span></article>
+        <article class="skill-card"><div class="skill-top"><span class="skill-icon" aria-hidden="true">{ }</span><span class="skill-number">03</span></div><h3>JavaScript · 交互的魔法</h3><p>从一个按钮开始，为静态页面加入恰到好处的互动。</p><span class="skill-tag">示例 · 交互体验</span></article>
+      </div>
+    </section>
+    <aside class="closing"><span aria-hidden="true">✳</span><p>每一个小小的开始，都值得被记录。</p><a href="#" aria-label="回到页面顶部">回到顶部 ↑</a></aside>
+  </main>
+  <footer class="wrap site-footer"><span>我的个人主页 · 持续生长中</span><span>用好奇心与代码构建</span></footer>
 </body>
 </html>
